@@ -65,7 +65,7 @@ fi
             sh 'pip3 install --upgrade --user awscli'
             sh 'aws eks --region us-east-2 update-kubeconfig --name ruben-eks-EKS-Cluster'
             sh 'export KUBECONFIG=/var/lib/jenkins/.kube/config'
-            sh 'kubectl  apply -f capstone-k8s.yaml'
+            sh 'KUBECONFIG=/var/lib/jenkins/.kube/config kubectl  apply -f capstone-k8s.yaml'
           }
 
         }
