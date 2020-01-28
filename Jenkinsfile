@@ -48,7 +48,7 @@ fi
 
     stage('Scan Dockerfile to find vulnerabilities') {
       steps {
-        aquaMicroscanner(imageName: "ruben/capstone-bcrypt:${env.GIT_HASH}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
+        aquaMicroscanner(imageName: "rubenrulz/capstone-bcrypt:${env.GIT_HASH}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
       }
     }
 
