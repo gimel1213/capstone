@@ -2,24 +2,21 @@
 
 ## Introduction
 
-This project is a requirement to graduate at [Cloud DevOps Nanodegree](https://www.udacity.com/course/cloud-dev-ops-nanodegree--nd9991). The project requires to set up a Kubernetes cluster hosted at AWS EKS, and deploy the Docker image using Jenkins Pipeline.
+This is the capstone project for udacity devops ingineer. Pipeline details are as follows.
 
 ## Technologies
 
 * [Bcrypt Sandbox](https://github.com/felladrin/bcrypt-sandbox), as the main application.
 * Docker, for building a ready-deploy application.
 * Kubernetes(AWS EKS), for automating deployment, scaling, and management of containerized applications.
-* NGINX Ingress Controller, for assembling an NGINX configuration file (nginx.conf).
 * CloudFormation, for agentless IT automation.
 * Aqua Microscanner, for docker protection, monitoring, logging and real-time analysis.
 * Jenkins, for automatic integrations and deployments(CI/CD).
 
-## Roadmap
-  - setup the cloudformation stacks
-  - add nessasary
-  - [x] ~~Jenkins Template~~
-  - [x] ~~Application code~~
-  - [x] ~~Dockerfile~~
-  - [x] ~~Jenkinsfile~~
-  - [x] ~~Kubernetes Template~~
-  - [x] ~~NGINX Ingress Kubernetes Template~~
+## How to run
+  - setup the cloudformation stacks  run "make deploy" with your aws profile setupped
+  - configure the jenkins server with the pluggins Aqua Microscanner and pipeline aws
+  - setup awscli new version, userpermissions to eks,kubectl etc for jenkins
+  - blues ocean ui has been used
+  - setup the credentails for docker and aws in jenkins credentails
+  - that'll do it.
