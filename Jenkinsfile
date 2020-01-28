@@ -64,7 +64,8 @@ fi
           withAWS(credentials: 'aws-credentials', region: 'us-east-2') {
             sh 'pip3 install --upgrade --user awscli'
             sh 'aws eks --region us-east-2 update-kubeconfig --name ruben-eks-EKS-Cluster'
-            sh 'kubectl --kubeconfig /var/lib/jenkins/.kube/config apply -f capstone-k8s.yaml'
+            sh 'export KUBECONFIG=/var/lib/jenkins/.kube/config'
+            sh 'kubectl  apply -f capstone-k8s.yaml'
           }
 
         }
