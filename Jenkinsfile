@@ -62,7 +62,7 @@ fi
       steps {
         dir(path: 'k8s') {
           withAWS(credentials: 'aws-credentials', region: 'us-east-2') {
-            sh 'aws eks --region us-east-2 update-kubeconfig --name capstone'
+            sh 'aws eks --region us-east-2 update-kubeconfig --name ruben-eks-EKS-Cluster'
             sh 'kubectl apply -f capstone-k8s.yaml'
           }
 
