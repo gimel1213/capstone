@@ -43,6 +43,7 @@ Resources:
                   - "s3:*"
                   - "cloudformation:*"
                   - "secretmanager:*"
+                  - "eks:*"
                 Resource: "*"
   
   JenkinsUser:

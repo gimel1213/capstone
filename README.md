@@ -15,8 +15,8 @@ This project is a requirement to graduate at [Cloud DevOps Nanodegree](https://w
 * Jenkins, for automatic integrations and deployments(CI/CD).
 
 ## Roadmap
-  - [x] ~~Network Template~~
-  - [x] ~~EKS Template~~
+  - setup the cloudformation stacks
+  - add nessasary
   - [x] ~~Jenkins Template~~
   - [x] ~~Application code~~
   - [x] ~~Dockerfile~~
