@@ -54,7 +54,7 @@ fi
 
     stage('Build Docker Container') {
       steps {
-        sh 'docker run --name capstone -d -p 80:80 rubenrulez/capstone-bcrypt:${env.GIT_HASH}'
+        sh 'docker run --name capstone -d -p 80:80 rubenrulz/capstone-bcrypt:${env.GIT_HASH}'
       }
     }
 
