@@ -196,7 +196,7 @@ Resources:
   EKSCluster:
     Type: "AWS::EKS::Cluster"
     Properties:
-      Name: !Join [ "", [ !Ref 'AWS::StackName', "-EKS-Cluster" ] ]
+      Name: eksnodegroup
       ResourcesVpcConfig:
         SecurityGroupIds:
           - !Ref EKSClusterSecurityGroup
@@ -206,6 +206,22 @@ Resources:
           - Fn::ImportValue: !Sub "${Capstone}-SUBNET3"
       RoleArn: !GetAtt EKSClusterInstanceRole.Arn
       Version: 1.14
+
+    
+  EKSNodegroup:
+    Type: 'AWS::EKS::Nodegroup'
+    Properties:
+      ClusterName: !Ref EKSCluster
+      NodeRole: !Ref WorkerNodeInstanceRole
+      ScalingConfig:
+        MinSize: 3
+        DesiredSize: 5
+        MaxSize: 7
+     
+      Subnets:
+        - Fn::ImportValue: !Sub "${Capstone}-SUBNET1"
+        - Fn::ImportValue: !Sub "${Capstone}-SUBNET2"
+        - Fn::ImportValue: !Sub "${Capstone}-SUBNET3"
 
   WorkerNodeInstanceProfile:
     Type: AWS::IAM::InstanceProfile

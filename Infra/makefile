@@ -1,11 +1,8 @@
 Capstone=production
 KeyJenkinsSSH=jenkins
 region=us-east-2
-
 prefix=ruben
 profile=ruben
-
-
 deploy:
 	aws cloudformation deploy \
 	--template-file capstone-user.yaml \
@@ -35,7 +32,7 @@ deploy:
 	--region $(region) \
 	--parameter-override \
 	Capstone=$(Capstone) \
-	KeyName=$(KeyJenkinsSSH) \
+
 
 	aws cloudformation deploy \
 	--template-file capstone-jenkins.yaml \
