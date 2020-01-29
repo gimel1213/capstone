@@ -37,7 +37,7 @@ spec:
             topologyKey: "kubernetes.io/hostname"
       containers:
       - name: udacity
-        image: rubenrulz/capstone-bcrypt:{{BUILD_NO}}
+        image: https://361588996336.dkr.ecr.us-east-2.amazonaws.com/capstone-bcrypt:{{BUILD_NO}}
         command: [
           "/bin/bash", 
           "-c", 

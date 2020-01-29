@@ -37,7 +37,7 @@ fi
     // stage('Build & Push to dockerhub') {
     //   steps {
     //     script {
-    //       dockerImage = docker.build("rubenrulz/capstone-bcrypt:${env.GIT_HASH}")
+    //       dockerImage = docker.build("${repo}/capstone-bcrypt:${env.GIT_HASH}")
     //       docker.withRegistry('', dockerhubCredentials) {
     //         dockerImage.push()
     //       }
@@ -49,9 +49,9 @@ fi
     stage('Build & Push to ECR') {
       steps {
         script {
-          dockerImage = docker.build("rubenrulz/capstone-bcrypt:${BUILD_NO}")
+          dockerImage = docker.build("${repo}/capstone-bcrypt:${BUILD_NO}")
           docker.withRegistry("https://361588996336.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:aws-credentials") {
-        docker.image("your-image-name").push()
+        docker.image("${repo}/capstone-bcrypt:${BUILD_NO}").push()
       }
         }
 
@@ -59,7 +59,7 @@ fi
     }
     stage('Scan Dockerfile to find vulnerabilities') {
       steps {
-        aquaMicroscanner(imageName: "rubenrulz/capstone-bcrypt:${BUILD_NO}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
+        aquaMicroscanner(imageName: "${repo}/capstone-bcrypt:${BUILD_NO}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
       }
     }
 
@@ -93,5 +93,6 @@ fi
     dockerhubCredentials = 'dockerhubCredentials'
     awscredentials = credentials('aws-credentials')
     BUILD_NO = 1
+    repo = 'https://361588996336.dkr.ecr.us-east-2.amazonaws.com'
   }
 }
