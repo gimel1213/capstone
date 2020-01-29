@@ -91,6 +91,7 @@ fi
   }
   environment {
     dockerhubCredentials = 'dockerhubCredentials'
+    aws-credentials = 'aws-credentials'
     BUILD_NO = 1
   }
 }
