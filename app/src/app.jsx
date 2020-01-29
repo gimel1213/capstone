@@ -104,7 +104,7 @@ class App extends React.Component {
         <Menu fixed="top" inverted>
           <Container>
             <Menu.Item header>Bcrypt Sandbox</Menu.Item>
-            <Menu.Item>A tool for encrypting and decrypting text with bcrypt</Menu.Item>
+            <Menu.Item>Rolling Update</Menu.Item>
           </Container>
         </Menu>
         <Container style={{ marginTop: '7em' }}>
