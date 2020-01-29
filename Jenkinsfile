@@ -69,7 +69,7 @@ fi
   environment {
     dockerhubCredentials = 'dockerhubCredentials'
     awscredentials = credentials('aws-credentials')
-    BUILD_NO = 1
+    BUILD_NO = 2
     repo = '361588996336.dkr.ecr.us-east-2.amazonaws.com'
   }
 }
