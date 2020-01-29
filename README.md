@@ -25,5 +25,6 @@ This is the capstone project for udacity devops ingineer. Pipeline details are a
 
 
 ## Rolling update
-  - initaially we deplo
+  - initaially the deployment with the initial UI.And then change some text  in the UI and do a rolling update which will trigger after merging the code to the master branch.
+  - rolling update will be managed by kubernetes deployment type.after the new pods are up and running the old pods will be deleted automatically.
   - that'll do it.

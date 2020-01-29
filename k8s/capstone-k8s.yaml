@@ -70,7 +70,7 @@ kind: Service
 metadata:
   name: udacity
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: udacity
   ports:
