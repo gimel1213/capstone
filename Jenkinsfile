@@ -27,7 +27,7 @@ fi
         script {
           dockerImage = docker.build("rubenrulz/capstone-bcrypt:${BUILD_NO}")
           docker.withRegistry("https://361588996336.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:aws-credentials") {
-            docker.image("rubenrulz/capstone-bcrypt:${BUILD_NO}").push()
+            docker.image("capstone-bcrypt:${BUILD_NO}").push()
           }
         }
 
