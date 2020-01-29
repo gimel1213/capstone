@@ -104,7 +104,7 @@ metadata:
   name: udacity
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/ingress.class: "ingress-nginx"
+    kubernetes.io/ingress.class: alb
     #Limit app to my personal IP
     #nginx.ingress.kubernetes.io/whitelist-source-range: "IP/32"
 

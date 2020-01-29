@@ -25,5 +25,5 @@ This is the capstone project for udacity devops ingineer. Pipeline details are a
 
 
 ## Rolling update
-  - initaially
+  - initaially we deplo
   - that'll do it.
