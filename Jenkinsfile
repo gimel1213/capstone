@@ -21,6 +21,7 @@ fi
 
       }
     }
+
     stage('Build & Push to ECR') {
       steps {
         script {
@@ -28,7 +29,6 @@ fi
           docker.withRegistry("https://361588996336.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:aws-credentials") {
             docker.image("${repo}/udacity:${BUILD_NO}").push()
           }
-
         }
 
       }
@@ -47,7 +47,7 @@ fi
             sh 'pip3 install --upgrade --user awscli'
             sh 'aws eks --region us-east-2 update-kubeconfig --name ruben-eks-EKS-Cluster'
             sh 'export KUBECONFIG=/var/lib/jenkins/.kube/config'
-            sh "cat app-deployment.yaml | sed 's/{{BUILD_NO}}/${BUILD_NO}/g' | KUBECONFIG=/var/lib/jenkins/.kube/config kubectl  apply -f -"
+            sh "cat capstone-k8s.yaml | sed 's/{{BUILD_NO}}/${BUILD_NO}/g' | KUBECONFIG=/var/lib/jenkins/.kube/config kubectl  apply -f -"
           }
 
         }
@@ -71,5 +71,5 @@ fi
     awscredentials = credentials('aws-credentials')
     BUILD_NO = 1
     repo = '361588996336.dkr.ecr.us-east-2.amazonaws.com'
-     }
+  }
 }
