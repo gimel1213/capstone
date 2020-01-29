@@ -1,11 +1,5 @@
 pipeline {
   agent any
-   environment {
-        BUILD_NO = 1
-        
-    }
-
-
   stages {
     // stage('Hashing images') {
     //   steps {
@@ -97,5 +91,6 @@ fi
   }
   environment {
     dockerhubCredentials = 'dockerhubCredentials'
+    BUILD_NO = 1
   }
 }
