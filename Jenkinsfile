@@ -1,18 +1,6 @@
 pipeline {
   agent any
   stages {
-    // stage('Hashing images') {
-    //   steps {
-    //     script {
-    //       env.GIT_HASH = sh(
-    //         script: "git show --oneline | head -1 | cut -d' ' -f1",
-    //         returnStdout: true
-    //       ).trim()
-    //     }
-
-    //   }
-    // }
-
     stage('Lint Dockerfile') {
       steps {
         script {
@@ -34,29 +22,18 @@ fi
       }
     }
 
-    // stage('Build & Push to dockerhub') {
-    //   steps {
-    //     script {
-    //       dockerImage = docker.build("rubenrulz/capstone-bcrypt:${env.GIT_HASH}")
-    //       docker.withRegistry('', dockerhubCredentials) {
-    //         dockerImage.push()
-    //       }
-    //     }
-
-    //   }
-    // }
-
     stage('Build & Push to ECR') {
       steps {
         script {
           dockerImage = docker.build("rubenrulz/capstone-bcrypt:${BUILD_NO}")
           docker.withRegistry("https://361588996336.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:aws-credentials") {
-        docker.image("your-image-name").push()
-      }
+            docker.image("rubenrulz/capstone-bcrypt:${BUILD_NO}").push()
+          }
         }
 
       }
     }
+
     stage('Scan Dockerfile to find vulnerabilities') {
       steps {
         aquaMicroscanner(imageName: "rubenrulz/capstone-bcrypt:${BUILD_NO}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
