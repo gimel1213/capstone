@@ -24,9 +24,9 @@ fi
     stage('Build & Push to ECR') {
       steps {
         script {
-          dockerImage = docker.build("capstone-bcrypt:${BUILD_NO}")
+          dockerImage = docker.build("${repo}/capstone-bcrypt:${BUILD_NO}")
           docker.withRegistry("https://361588996336.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:aws-credentials") {
-            docker.image("capstone-bcrypt:${BUILD_NO}").push()
+            docker.image("${repo}/capstone-bcrypt:${BUILD_NO}").push()
           }
 
         }
