@@ -70,6 +70,6 @@ fi
     dockerhubCredentials = 'dockerhubCredentials'
     awscredentials = credentials('aws-credentials')
     BUILD_NO = 1
-    repo = 'https://361588996336.dkr.ecr.us-east-2.amazonaws.com'
-  }
+    repo = '361588996336.dkr.ecr.us-east-2.amazonaws.com'
+     }
 }
