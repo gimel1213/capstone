@@ -24,9 +24,9 @@ fi
     stage('Build & Push to ECR') {
       steps {
         script {
-          dockerImage = docker.build("${repo}/capstone-bcrypt:${BUILD_NO}")
+          dockerImage = docker.build("${repo}/udacity:${BUILD_NO}")
           docker.withRegistry("https://361588996336.dkr.ecr.us-east-2.amazonaws.com", "ecr:us-east-2:aws-credentials") {
-            docker.image("${repo}/capstone-bcrypt:${BUILD_NO}").push()
+            docker.image("${repo}/udacity:${BUILD_NO}").push()
           }
 
         }
@@ -36,7 +36,7 @@ fi
 
     stage('Scan Dockerfile to find vulnerabilities') {
       steps {
-        aquaMicroscanner(imageName: "${repo}/capstone-bcrypt:${BUILD_NO}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
+        aquaMicroscanner(imageName: "${repo}/udacity:${BUILD_NO}", notCompliesCmd: 'exit 4', onDisallowed: 'fail', outputFormat: 'html')
       }
     }
 
